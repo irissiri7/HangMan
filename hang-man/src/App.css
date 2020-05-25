@@ -2,10 +2,6 @@
   margin: 0px;
 }
 .App {
-  background-image: url("./images/bkg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   text-align: center;
   height: 100vh;
   width: 100vw;
@@ -20,11 +16,32 @@
   font-size: xx-large;
 }
 
-button{
-  padding: 15px;
+/* perhaps not good practice having this style due to accesibility issues. 
+Making an exception for this exercise*/
+button:focus {outline:0;}
+
+.letter-btn{
+  margin: 1em;
+  width: 3em;
+  height: 3em;
   color: white;
   background-color: #ffc107;
   box-shadow: 0px 5px #ff9800;
+  border-radius: 10px;
+  border: none;
+}
+
+#btn-container{
+  width: 50%;
+  margin: 0 auto;
+}
+
+#reset-btn{
+  margin: 1em;
+  padding: 10px;
+  color: white;
+  background-color: #e41414;
+  box-shadow: 0px 5px #c53916;
   border-radius: 10px;
   border: none;
 }
