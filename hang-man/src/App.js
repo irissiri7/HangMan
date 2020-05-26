@@ -16,18 +16,22 @@ function App (props) {
 
   const handleClick = e => {
     const element = e.target;
-    // updateGuessedLetters(guessedLetters.push(element.key));
-    console.log(element.getAttribute('key'));
+    setGuessedLetters(guessedLetters = [...guessedLetters, element.innerText]);
     element.classList.add('letter-btn-inactive');
     element.disabled = true;
     setCount(++count);
   }
 
-  
-
   const makeSecretWordRepresentation = () => {
     let secretWord = '';
-    randomWord.split('').map(letter => secretWord += '_ ');
+    randomWord.split('').map((letter, index) => {
+      if(randomWord[index] == letter && guessedLetters.includes(letter)){
+        secretWord += letter + ' ';
+      }
+      else{
+        secretWord += '_ ';
+      }
+    });
     return secretWord;
   }
 
@@ -41,7 +45,7 @@ function App (props) {
       <div id="btn-container">
         <KeyBoard className = 'letter-btn-default' letters={props.letters} handleClick = {handleClick}/>
       </div>
-      <ResetButton id= "reset-btn" setRandomWord = {setRandomWord} setCount={setCount}/>
+      <ResetButton id= "reset-btn" setRandomWord = {setRandomWord} setCount={setCount} setGuessedLetters = {setGuessedLetters}/>
     </div>
   );
 }

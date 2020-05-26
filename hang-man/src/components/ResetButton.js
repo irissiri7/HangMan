@@ -9,6 +9,7 @@ export default function ResetButton(props){
         letterButton.disabled = false;
         })
         props.setRandomWord(generateRandomWord());
+        props.setGuessedLetters([]);
         props.setCount(0);
     }
 
