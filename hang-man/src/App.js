@@ -5,7 +5,7 @@ import gallow from './images/gallow.jpg';
 
 function App() {
   
-  const randomWord = generateRandomWord();
+  let randomWord = generateRandomWord();
   
   return (
     <div className="App">
