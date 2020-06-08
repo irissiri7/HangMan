@@ -9,22 +9,22 @@ const App = ({letters}) => {
   
   //Hooks
   let [image, setImage] = useState(1)
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(6);
   let [randomWord, setRandomWord] = useState(generateRandomWord());
   let [guessedLetters, setGuessedLetters] = useState([]);
 
   useEffect(()=>{
     if(makeSecretWordRepresentation() == randomWord){
       setTimeout(() =>{
-        alert('you win!')
+        alert('Du vann!')
         handleReset();
-      }, 500);
+      }, 100);
     }
-    else if(count >= 6){
+    else if(count <= 0){
       setTimeout(() => {
-        alert('you loose');
+        alert(`Du förlorade. Rätt ord var: ${randomWord}`);
         handleReset();
-      }, 500)
+      }, 100)
     }
   },[guessedLetters])
 
@@ -33,7 +33,7 @@ const App = ({letters}) => {
     const element = e.target;
     const letter = element.innerText;
     if(!randomWord.split('').includes(letter)){
-      setCount(prev => prev +1);
+      setCount(prev => prev - 1);
       setImage(prev => prev +1);
 
     }
@@ -62,7 +62,7 @@ const App = ({letters}) => {
       letterButton.disabled = false;
     })
     setImage(1);
-    setCount(0);
+    setCount(6);
     setRandomWord(generateRandomWord());
     setGuessedLetters([]);
 }
@@ -79,7 +79,7 @@ const App = ({letters}) => {
       </div>
     </div>
       <p id="secretWord" className="bigText">{makeSecretWordRepresentation()}</p>
-      <p className="bigText">Antal fel gissningar: {count}</p>
+      <p className="bigText">Gissningar kvar: {count}</p>
       <div id="btn-container">
         <KeyBoard className = 'letter-btn-default' letters={letters} handleClick = {handleClick}/>
       </div>
