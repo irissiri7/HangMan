@@ -4,7 +4,7 @@ import generateRandomWord from './words';
 import gallow from './images/gallow.jpg';
 import KeyBoard from './components/KeyBoard';
 import Header from './components/Header';
-import ResetButton from './components/ResetButton';
+import Button from './components/Button';
 
 const App = ({letters}) => {
   
@@ -35,6 +35,17 @@ const App = ({letters}) => {
     return secretWord;
   }
 
+  const handleReset = () => {
+    let letterButtons = Array.from(document.getElementsByClassName('letter-btn-inactive'));
+    letterButtons.map(letterButton => {
+    letterButton.classList.remove('letter-btn-inactive');
+    letterButton.disabled = false;
+    })
+    setRandomWord(generateRandomWord());
+    setGuessedLetters([]);
+    setCount(0);
+}
+
   
   return (
     <div className="App">
@@ -45,7 +56,7 @@ const App = ({letters}) => {
       <div id="btn-container">
         <KeyBoard className = 'letter-btn-default' letters={letters} handleClick = {handleClick}/>
       </div>
-      <ResetButton id= "reset-btn" setRandomWord = {setRandomWord} setCount={setCount} setGuessedLetters = {setGuessedLetters}/>
+      <Button id= "reset-btn" handleClick={handleReset}/>
     </div>
   );
 }
