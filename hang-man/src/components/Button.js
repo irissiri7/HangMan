@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Button = ({id, handleClick}) => {
+const Button = ({text, handleClick, className, id}) => {
     
-    return <button id={id} onClick={handleClick}>Återställ</button>
+    return <button key={id} onClick={handleClick} id={id} className={className}>{text}</button>
 }
 
-export default Button;
+Button.defaultProps = { 
+    className: '' 
+};
 
-//id, handleClick, key, className
+export default Button;

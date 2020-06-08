@@ -1,7 +1,8 @@
 import React from 'react';
+import Button from './Button';
 
-const KeyBoard = ({letters, className, handleClick}) => {
-    return letters.map(letter => <button key = {letter} className={className} onClick={handleClick}>{letter}</button>); 
+const KeyBoard = ({letters, handleClick, className}) => {
+    return letters.map(letter => <Button text={letter} id={letter} key = {letter} className={className} handleClick={handleClick}/>); 
 }
 
 export default KeyBoard;

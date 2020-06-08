@@ -13,6 +13,8 @@ const App = ({letters}) => {
   let [randomWord, setRandomWord] = useState(generateRandomWord());
   let [guessedLetters, setGuessedLetters] = useState([]);
 
+  
+
 
   const handleClick = e => {
     const element = e.target;
@@ -56,7 +58,7 @@ const App = ({letters}) => {
       <div id="btn-container">
         <KeyBoard className = 'letter-btn-default' letters={letters} handleClick = {handleClick}/>
       </div>
-      <Button id= "reset-btn" handleClick={handleReset}/>
+      <Button text="Återställ" id= "reset-btn" handleClick={handleReset}/>
     </div>
   );
 }
