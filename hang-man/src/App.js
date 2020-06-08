@@ -6,7 +6,7 @@ import KeyBoard from './components/KeyBoard';
 import Header from './components/Header';
 import ResetButton from './components/ResetButton';
 
-function App (props) {
+const App = (props) => {
   
   //Hooks
   let [count, setCount] = useState(0);
