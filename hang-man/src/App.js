@@ -15,14 +15,18 @@ const App = ({letters}) => {
 
   useEffect(()=>{
     if(makeSecretWordRepresentation() == randomWord){
-      alert('you win!')
-      handleReset();
+      setTimeout(() =>{
+        alert('you win!')
+        handleReset();
+      }, 500);
     }
     else if(count >= 6){
-      alert('you loose');
-      handleReset();
+      setTimeout(() => {
+        alert('you loose');
+        handleReset();
+      }, 500)
     }
-  },[image])
+  },[guessedLetters])
 
 
   const handleClick = e => {
@@ -54,20 +58,26 @@ const App = ({letters}) => {
   const handleReset = () => {
     let letterButtons = Array.from(document.getElementsByClassName('letter-btn-inactive'));
     letterButtons.map(letterButton => {
-    letterButton.classList.remove('letter-btn-inactive');
-    letterButton.disabled = false;
+      letterButton.classList.remove('letter-btn-inactive');
+      letterButton.disabled = false;
     })
     setImage(1);
+    setCount(0);
     setRandomWord(generateRandomWord());
     setGuessedLetters([]);
-    setCount(0);
 }
 
   
   return (
     <div className="App">
-      <Header/>
-      <img id="gallow" src={require(`./images/gallow${image}.jpg`)} alt="An empty gallow"/>
+    <div style={{display:'flex', justifyContent:'center'}}>
+      <div style={{width:'20%'}}>
+        <Header/>
+      </div>
+      <div style={{width:'20%'}}>
+        <img width='100px' id="gallow" src={require(`./images/gallow${image}.jpg`)} alt="Gallow"/>
+      </div>
+    </div>
       <p id="secretWord" className="bigText">{makeSecretWordRepresentation()}</p>
       <p className="bigText">Antal fel gissningar: {count}</p>
       <div id="btn-container">

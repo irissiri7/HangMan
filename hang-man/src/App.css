@@ -23,7 +23,7 @@ body {
 
 .bigText{
   margin: 0px;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 /* perhaps not good practice having this style due to accesibility issues. 
@@ -38,15 +38,15 @@ button{
 }
 
 .letter-btn-default{
-  width: 3em;
-  height: 3em;
+  width: 2.5em;
+  height: 2.5em;
   background-color: #ffc107;
   box-shadow: 0px 5px #ff9800;
 }
 
 .letter-btn-inactive{
-  width: 3em;
-  height: 3em;
+  width: 2.5em;
+  height: 2.5em;
   background-color: #bdbdbd;
   box-shadow: 0px 5px #000000;
 }
