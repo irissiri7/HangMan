@@ -6,7 +6,7 @@ import KeyBoard from './components/KeyBoard';
 import Header from './components/Header';
 import ResetButton from './components/ResetButton';
 
-const App = (props) => {
+const App = ({letters}) => {
   
   //Hooks
   let [count, setCount] = useState(0);
@@ -43,7 +43,7 @@ const App = (props) => {
       <p id="secretWord" className="bigText">{makeSecretWordRepresentation()}</p>
       <p className="bigText">Antal gissningar: {count}</p>
       <div id="btn-container">
-        <KeyBoard className = 'letter-btn-default' letters={props.letters} handleClick = {handleClick}/>
+        <KeyBoard className = 'letter-btn-default' letters={letters} handleClick = {handleClick}/>
       </div>
       <ResetButton id= "reset-btn" setRandomWord = {setRandomWord} setCount={setCount} setGuessedLetters = {setGuessedLetters}/>
     </div>
